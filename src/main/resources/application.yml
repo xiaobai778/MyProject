@@ -1,0 +1,40 @@
+
+server:
+  port: 8888
+spring:
+  mvc:
+    pathmatch:
+      # 配置策略
+      matching-strategy: ant-path-matcher
+  application:
+    #应用的名称，可选
+    name: ddining
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/ddining?characterEncoding=utf-8
+      username: root
+      password: 123456
+  redis:
+    host: 127.0.0.1
+    port: 6379
+#    password: 123456
+    database: 0
+  cache:
+    redis:
+      time-to-live: 1800000 # 设置缓存过期时间
+mybatis-plus:
+  configuration:
+    #在映射实体或者属性时，将数据库中表名和字段名中的下划线去掉，按照驼峰命名法映射
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: ASSIGN_ID
+ddining:
+  imgpath: D:\\img\
+#debug: true
+#logging:
+#  file:
+#    name: log.log
+#  imgpath: usr/local/img
